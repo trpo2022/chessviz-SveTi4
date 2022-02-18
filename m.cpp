@@ -1,16 +1,17 @@
-#include <fstream>
 #include <iostream>
-#include <string>
+
 using namespace std;
 
-// функция ниже выводит шахматную доску
-void PrintBoard(char board1[8][9], char bot[9], char left[9])
+const int N1 = 8;
+const int N2 = 9;
+
+void print_board(char board[N1][N2], char bot[N2], char left[N2])
 {
     int n = 8, i, j;
     for (i = 0; i < n; i++) {
         cout << left[i] << " ";
         for (j = 0; j < n; j++) {
-            cout << board1[i][j] << " ";
+            cout << board[i][j] << " ";
         }
         cout << endl;
     }
@@ -20,30 +21,13 @@ void PrintBoard(char board1[8][9], char bot[9], char left[9])
     }
     cout << endl;
 }
-// функция ниже проходится по файлу для чтения комманд
-void check_list(string file_name)
-{
-    ifstream fin("1.txt");
-    if (!fin) {
-        std::cerr << "Ошибка, невозможно открыть файл : text.txt" << std::endl;
-    }
-    int i_number_line_now = 0; //счётчик строк
-    string line;               //Хранение строки
-    string line_file_text;     //Хранение теста файла
-    while (getline(fin, line)) {
-        i_number_line_now++;
-        line_file_text.insert(line_file_text.size(), line);
-        line_file_text.insert(line_file_text.size(), "\r\n");
-
-        cout << line << endl;
-    }
-    fin.close(); // закрываем файл
-}
 
 int main()
 {
     setlocale(LC_ALL, "rus");
-    char board1[8][9]
+    char left[N2] = "87654321";
+    char bot[N2] = "abcdefgh";
+    char board[N1][N2]
             = {"rnbqkbnr",
                "pppppppp",
                "        ",
@@ -52,10 +36,6 @@ int main()
                "        ",
                "PPPPPPPP",
                "RNBKQBNR"};
-    char left[9] = "87654321";
-    char bot[9] = "abcdefgh";
-    string file = "1.txt";
-    int i, j, n = 8;
-    PrintBoard(board1, bot, left);
+    print_board(board, bot, left);
     return 0;
 }
