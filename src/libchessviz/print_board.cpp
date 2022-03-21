@@ -1,5 +1,5 @@
-#include <libchessviz/print_board.h>
 #include <iostream>
+#include <libchessviz/print_board.h>
 using namespace std;
 
 void print_board(char board[N1][N2], char bot[N2], char left[N2])
