@@ -3,15 +3,6 @@
 #include <libchessviz/print_board.h>
 #include <string>
 using namespace std;
-char board[N1][N2]
-        = {"rnbqkbnr",
-           "pppppppp",
-           "        ",
-           "        ",
-           "        ",
-           "        ",
-           "PPPPPPPP",
-           "RNBKQBNR"};
 // Функция узнаёт местоположение шахматной клетки в массиве до и после движения
 // фигуры
 void step(
@@ -64,7 +55,7 @@ void readCommand(string line, char board[N1][N2])
     board[posLine2][posColumn2] = buf;
 }
 // Функция перебирает строки с командами в .txt файле
-void check_txt(string file_name)
+void check_txt(string file_name, char board[N1][N2])
 {
     ifstream fin(file_name);
     if (!fin) {
@@ -85,12 +76,21 @@ void check_txt(string file_name)
 
 int main()
 {
+    char board[N1][N2]
+            = {"rnbqkbnr",
+               "pppppppp",
+               "        ",
+               "        ",
+               "        ",
+               "        ",
+               "PPPPPPPP",
+               "RNBKQBNR"};
     string file = "board.txt";
     setlocale(LC_ALL, "rus");
 
     print_board(board); // Вывод доски
     cout << "\n";
-    check_txt(file); // Обработка файла
+    check_txt(file, board); // Обработка файла
     cout << "\n";
     print_board(board); // Вывод доски
     return 0;
