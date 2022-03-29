@@ -85,7 +85,6 @@ void check_txt(string file_name)
 
 int main()
 {
-    int count_cmnds = 0;
     string file = "src/chessviz/board.txt";
     setlocale(LC_ALL, "rus");
 
