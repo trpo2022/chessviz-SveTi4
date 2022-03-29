@@ -85,7 +85,7 @@ void check_txt(string file_name)
 
 int main()
 {
-    string file = "src/chessviz/board.txt";
+    string file = "board.txt";
     setlocale(LC_ALL, "rus");
 
     print_board(board); // Вывод доски
