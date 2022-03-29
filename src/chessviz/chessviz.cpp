@@ -2,9 +2,7 @@
 #include <iostream>
 #include <libchessviz/print_board.h>
 #include <string>
-
 using namespace std;
-
 char board[N1][N2]
         = {"rnbqkbnr",
            "pppppppp",
@@ -14,10 +12,8 @@ char board[N1][N2]
            "        ",
            "PPPPPPPP",
            "RNBKQBNR"};
-
 // Функция узнаёт местоположение шахматной клетки в массиве до и после движения
 // фигуры
-
 void step(
         char* step,
         int& board_line_pos1,
@@ -36,7 +32,6 @@ void step(
     board_line_pos2 = left.find(line2);
     board_column_pos2 = bot.find(column2);
 }
-
 // Функйция читает комманду из строки и разбивает на части,
 // после чего передаёт в функцию step для получения местоположений
 // клеток в массиве и переставляет фигуру
@@ -68,28 +63,6 @@ void readCommand(string line, char board[N1][N2])
     board[posLine1][posColumn1] = ' ';
     board[posLine2][posColumn2] = buf;
 }
-
-// Функция узнаёт кол-во строк в файле;
-// void count_commands (string file_name, int &i) {
-//     //i - кол-во непустых строк
-//     i = 1;
-//     ifstream file(file_name);
-//     if (!file) {
-//         cerr << "Ошибка, невозможно открыть файл : " << file_name << endl;
-//     } else {
-//         char buf;
-//         while (!file.eof())
-//         {
-//             file.read(&buf,1);
-//             string line;
-//             getline(file, line);
-//             int l = line.length();
-//             if (buf=='\n' && l>=4) i++;
-//         }
-//     }
-//     file.close();
-// }
-
 // Функция перебирает строки с командами в .txt файле
 void check_txt(string file_name)
 {
