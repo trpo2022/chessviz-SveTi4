@@ -5,6 +5,17 @@
 using namespace std;
 // Функция узнаёт местоположение шахматной клетки в массиве до и после движения
 // фигуры
+void swap(
+        int posLine1,
+        int posColumn1,
+        int posLine2,
+        int posColumn2,
+        char board[N1][N2])
+{
+    char buf = board[posLine1][posColumn1];
+    board[posLine1][posColumn1] = ' ';
+    board[posLine2][posColumn2] = buf;
+}
 void step(
         char* step,
         int& board_line_pos1,
@@ -46,13 +57,9 @@ void readCommand(string line, char board[N1][N2])
         step2[j] = line[i];
     // получение местоположений в исходном массиве board и передмещение фигуры
     step(step1, posLine1, posColumn1, posLine2, posColumn2);
-    char buf = board[posLine1][posColumn1];
-    board[posLine1][posColumn1] = ' ';
-    board[posLine2][posColumn2] = buf;
+    swap(posLine1, posColumn1, posLine2, posColumn2, board);
     step(step2, posLine1, posColumn1, posLine2, posColumn2);
-    buf = board[posLine1][posColumn1];
-    board[posLine1][posColumn1] = ' ';
-    board[posLine2][posColumn2] = buf;
+    swap(posLine1, posColumn1, posLine2, posColumn2, board);
 }
 // Функция перебирает строки с командами в .txt файле
 void check_txt(string file_name, char board[N1][N2])
