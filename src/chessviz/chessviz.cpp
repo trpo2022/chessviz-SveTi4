@@ -1,17 +1,19 @@
 
+#include <cstring>
 #include <fstream>
 #include <iostream>
-#include <cstring>
-#include <stdio.h>
 #include <libchessviz/const.h>
 #include <libchessviz/structs.h>
-#include <libchessviz/print_board.h>
-#include <libchessviz/fill_board.h>
 #include <libchessviz/AddSpisElm.h>
-#include <libchessviz/check_txt.h>
 #include <libchessviz/ReadSpis.h>
+#include <libchessviz/check_txt.h>
+#include <libchessviz/fill_board.h>
+#include <libchessviz/print_board.h>
 
-int main () {
+#include <stdio.h>
+
+int main()
+{
     item board[N][N];
     list_command *head, *tail;
     head = tail = new list_command;
