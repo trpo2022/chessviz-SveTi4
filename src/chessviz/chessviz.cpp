@@ -1,15 +1,7 @@
-
 #include <cstring>
 #include <fstream>
 #include <iostream>
-#include <libchessviz/const.h>
-#include <libchessviz/structs.h>
-#include <libchessviz/AddSpisElm.h>
-#include <libchessviz/ReadSpis.h>
-#include <libchessviz/check_txt.h>
-#include <libchessviz/fill_board.h>
-#include <libchessviz/print_board.h>
-
+#include <libchessviz/chess.h>
 #include <stdio.h>
 
 int main()
