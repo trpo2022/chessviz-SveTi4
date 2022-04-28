@@ -1,5 +1,5 @@
 #pragma once
-
+#include <libchessviz/structs.h>
 void AddSpisElm(list_command*& tail, string line, int L, int R)
 {
     list_command* p;

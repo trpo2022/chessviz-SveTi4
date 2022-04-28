@@ -1,5 +1,5 @@
 #pragma once
-
+#include <libchessviz/structs.h>
 void ReadSpis(list_command* head)
 {
     list_command* p;

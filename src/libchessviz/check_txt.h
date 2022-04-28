@@ -1,5 +1,5 @@
 #pragma once
-
+#include <libchessviz/structs.h>
 void check_txt(string file_name, list_command* tail)
 {
     ifstream fin(file_name);

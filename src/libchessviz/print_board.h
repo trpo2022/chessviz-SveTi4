@@ -1,5 +1,5 @@
 #pragma once
-
+#include <libchessviz/structs.h>
 void PrintBoard(item (*board)[N], int flag)
 {
     int i = 0, j = 0;

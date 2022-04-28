@@ -1,5 +1,6 @@
 #pragma once
-
+#include <libchessviz/const.h>
+#include <libchessviz/structs.h>
 void FillBoard(item (*board)[N])
 {
     int i = 0, j;
