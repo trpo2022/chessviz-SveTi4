@@ -2,12 +2,9 @@
 
 void PrintBoard(char (*board)[N])
 {
-    clearm();
-    for (int i = 0; i < N; i++)
-    {
+    for (int i = 0; i < N; i++) {
         cout << Column[i] << "|";
-        for (int j = 0; j < N; j++)
-        {
+        for (int j = 0; j < N; j++) {
             cout << " " << board[i][j];
         }
         cout << endl;
