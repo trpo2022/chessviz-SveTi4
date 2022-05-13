@@ -14,19 +14,13 @@ struct f {
     char name[1];
 };
 
-struct item {
-    char row[1];
-    int column;
-    f figure;
-};
-
 struct list_command {
     std::string Cmd;
     list_command *next, *prev;
 };
-
-void PrintBoard(item (*board)[N], int flag);
+void clearm();
+void PrintBoard(char (*board)[N]);
 void AddSpisElm(list_command*& tail, std::string line, int L, int R);
-void FillBoard(item (*board)[N]);
+void FillBoard(char (*board)[N]);
 void ReadSpis(list_command* head);
 void check_txt(std::string file_name, list_command* tail);
