@@ -11,11 +11,23 @@ void check_txt(string file_name, list_command* tail)
     string line; //Хранение строки
     while (getline(fin, line)) {
         if (line.size()) { // Заношу команды в список
-            N1 = line.find("-") * 2 + 1;
-            AddSpisElm(tail, line, 0, N1);
+            N1 = 0;
+            N2 = line.find(' ');
+            if (N2 == 5)
+                AddSpisElm(tail, line, N1, N2);
+            else if (N2 == 6)
+                AddSpisElm(tail, line, N1, N2);
             N2 = line.size();
-            if (N1 < N2)
-                AddSpisElm(tail, line, N1 + 1, N2);
+            if (N2 == 5)
+                AddSpisElm(tail, line, N1, N2);
+            else if (N2 == 6)
+                AddSpisElm(tail, line, N1, N2);
+            else if (N2 == 7 && line[6] == '#')
+                AddSpisElm(tail, line, N1, N2);
+            else if (N2 > 6) {
+                N1 = line.find(' ') + 1;
+                AddSpisElm(tail, line, N1, N2);
+            }
         }
     }
     fin.close(); // закрываем файл
