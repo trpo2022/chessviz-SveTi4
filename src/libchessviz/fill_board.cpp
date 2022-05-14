@@ -2,7 +2,8 @@
 
 void FillBoard(char (*Board)[N])
 {
-    char board[N][N] = {{'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
+    char board[N][N]
+            = {{'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
                {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
                {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
                {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
@@ -13,5 +14,4 @@ void FillBoard(char (*Board)[N])
     for (int i = 0; i < N; i++)
         for (int j = 0; j < N; j++)
             Board[i][j] = board[i][j];
-    
 }

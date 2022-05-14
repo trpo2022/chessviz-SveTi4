@@ -54,7 +54,8 @@ int queen(char chess_board[N][N], motion motion, int error_output)
             while (motion.xStart > motion.xEnd) {
                 if (chess_board[motion.yEnd][motion.xEnd] != ' ') {
                     if (error_output == 1)
-                        Errors(13);;
+                        Errors(13);
+                    ;
                     return 0;
                 }
                 motion.xEnd++;
