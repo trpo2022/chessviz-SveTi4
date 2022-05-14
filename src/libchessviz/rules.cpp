@@ -1,5 +1,25 @@
 #include "chess.h"
 
+int friendly_fire(char chess_board[N][N], motion motion)
+{
+    char bigf[7] = {'R', 'N', 'B', 'Q', 'K', 'P'};
+    char c = chess_board[motion.yStart][motion.xStart];
+    char c2 = chess_board[motion.yEnd][motion.xEnd];
+    int color1 = 0;
+    int color2 = 0;
+    for (int i = 0; i < 6; i++) {
+        if (c == bigf[i])
+            color1 = 1;
+        if (c2 == bigf[i])
+            color2 = 1;
+    }
+    if (color1 == color2) {
+        cout << "\nError: friendly_fire" << endl;
+        return 1;
+    }
+    return 0;
+}
+
 int king(char chess_board[N][N], motion motion, int error_output)
 {
     if (!((chess_board[motion.yStart][motion.xStart] == 'K')
@@ -424,6 +444,9 @@ int Rules(std::string step, motion*& motion, char (*board)[N])
         motion->xStart = (int)step[1] - 'a';
         motion->yEnd = 8 - ((int)step[5] - '0');
         motion->xEnd = (int)step[4] - 'a';
+        if (motion->move == 'x' && board[motion->yEnd][motion->xEnd] != ' '
+            && (friendly_fire(board, *motion)))
+            return 0;
         if (!(motion->xEnd < 0 || motion->xEnd > 7 || motion->yEnd < 0
               || motion->yEnd > 7 || motion->xStart < 0 || motion->xStart > 7
               || motion->yStart < 0 || motion->yStart > 7)) {
@@ -455,7 +478,9 @@ int Rules(std::string step, motion*& motion, char (*board)[N])
         motion->xStart = (int)step[0] - 'a';
         motion->yEnd = 8 - ((int)step[4] - '0');
         motion->xEnd = (int)step[3] - 'a';
-
+        if (motion->move == 'x' && board[motion->yEnd][motion->xEnd] != ' '
+            && (friendly_fire(board, *motion)))
+            return 0;
         if (!(motion->xEnd < 0 || motion->xEnd > 7 || motion->yEnd < 0
               || motion->yEnd > 7 || motion->xStart < 0 || motion->xStart > 7
               || motion->yStart < 0 || motion->yStart > 7)) {
