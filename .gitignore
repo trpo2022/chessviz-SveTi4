@@ -4,5 +4,7 @@
 *.a
 *.d
 bin/chessviz
+bin/chessviz-test
+.vscode/
 main
 
